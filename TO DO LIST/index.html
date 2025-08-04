@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blue Themed To-Do List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f2ff;
+      color: #003366;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #0055aa;
+    }
+
+    .input-container {
+      margin-bottom: 20px;
+    }
+
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      width: 200px;
+    }
+
+    button {
+      background-color: #0077cc;
+      color: white;
+      cursor: pointer;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background-color: #cce7ff;
+      margin: 10px auto;
+      padding: 10px;
+      width: 80%;
+      border-radius: 5px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>📘 Blue To-Do List</h1>
+
+  <div class="input-container">
+    <input type="text" id="task" placeholder="Enter task" />
+    <input type="date" id="date" />
+    <input type="time" id="time" />
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    function addTask() {
+      const taskInput = document.getElementById('task');
+      const dateInput = document.getElementById('date');
+      const timeInput = document.getElementById('time');
+      const taskList = document.getElementById('taskList');
+
+      const task = taskInput.value.trim();
+      const date = dateInput.value;
+      const time = timeInput.value;
+
+      if (task === "") {
+        alert("Please enter a task");
+        return;
+      }
+
+      const li = document.createElement('li');
+      li.textContent = 📝 ${task} - 📅 ${date} 🕒 ${time};
+      taskList.appendChild(li);
+
+      // Clear inputs
+      taskInput.value = "";
+      dateInput.value = "";
+      timeInput.value = "";
+    }
+  </script>
+</body>
+</html>
